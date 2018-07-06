@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.net.*;
 import java.sql.*;
@@ -17,7 +16,7 @@ class SimpleServer implements IConstants {
                 Socket socket = server.accept();
                 System.out.println("#" + (++clientCount) + CLIENT_JOINED);
                 new Thread(new ClientHandler(socket, clientCount)).start();
-            } 
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -73,7 +72,7 @@ class SimpleServer implements IConstants {
             try {
                 socket = clientSocket;
                 reader = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
+                        new InputStreamReader(socket.getInputStream()));
                 writer = new PrintWriter(socket.getOutputStream());
                 name = "Client #" + clientCount;
             } catch(Exception ex) {
